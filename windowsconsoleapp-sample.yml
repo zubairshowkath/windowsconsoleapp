@@ -30,6 +30,13 @@ stages:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
         Contents: '**'
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    - task: CmdLine@2
+      inputs:
+        script: |
+          echo Write your commands here
+          echo Hello world
+        #workingDirectory: # Optional
+        #failOnStderr: false # Optional
   - job: SecondJob
     steps:
     - powershell: echo Build SecondJob
