@@ -18,9 +18,12 @@ stages:
     steps:
     - powershell: echo Build FirstJob
     - powershell: echo $env:PIPELINELEVELVARIABLE
-    - powershell: echo $env:Build.Source
+    - powershell: echo $env:Build_Source
     - powershell: echo $Agent.OS
     - powershell: echo $Agent.BuildDirectory
   - job: SecondJob
     steps:
     - powershell: echo Build SecondJob
+    - powershell: Write-Host "This is a script that could use $env:SYSTEM_ACCESSTOKEN"
+      env:
+        SYSTEM_ACCESSTOKEN: $(System.AccessToken)
