@@ -26,11 +26,11 @@ stages:
     - powershell: Dir $(System.DefaultWorkingDirectory)
     - powershell: cd $(System.DefaultWorkingDirectory)\netcoreapp3.1
     #- bash: echo $(Build.ArtifactStagingDirectory)
-    - script: date /t
-      displayName: Get the date
-    - script: dir
-      workingDirectory: $(Agent.BuildDirectory)
-      displayName: List contents of a folder
+    # - script: date /t
+    #   displayName: Get the date
+    # - script: dir
+    #   workingDirectory: $(Agent.BuildDirectory)
+    #   displayName: List contents of a folder
     - task: CmdLine@2
       inputs:
         script: 'HelloWorld.exe'
