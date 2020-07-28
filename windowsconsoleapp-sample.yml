@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: vs2017-win2016'
 
 stages:
 - stage: Copy
@@ -18,7 +18,7 @@ stages:
     steps:
     - powershell: echo Build FirstJob
     - powershell: echo ${env:PIPELINELEVELVARIABLE}
-    - powershell: echo ${environment}
+    - powershell: echo ${env:environment} FirstJob Env variable
   - job: SecondJob
     steps:
     - powershell: echo Build SecondJob
