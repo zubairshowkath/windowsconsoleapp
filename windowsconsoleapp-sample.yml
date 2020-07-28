@@ -23,7 +23,7 @@ stages:
     - bash: echo $(Agent.OS)
     - bash: echo $(Agent.BuildDirectory)
     - bash: echo $(System.DefaultWorkingDirectory)
-    - bash: ls -R $(System.DefaultWorkingDirectory)
+    - powershell: Dir $(System.DefaultWorkingDirectory)
     - bash: echo $(Build.ArtifactStagingDirectory)
   - job: SecondJob
     steps:
