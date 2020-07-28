@@ -25,6 +25,14 @@ stages:
     - bash: echo $(System.DefaultWorkingDirectory)
     - powershell: Dir $(System.DefaultWorkingDirectory)
     - bash: echo $(Build.ArtifactStagingDirectory)
+    - script: date /t
+      displayName: Get the date
+    - script: dir
+      workingDirectory: $(Agent.BuildDirectory)
+      displayName: List contents of a folder
+    - task: CmdLine@2
+      inputs:
+        script: 'HelloWorld.exe'
     - task: CopyFiles@2
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
@@ -35,7 +43,7 @@ stages:
         script: |
           echo Write your commands here
           echo Hello world
-        #workingDirectory: # Optional
+        #workingDirectory: # (Optional) Specify the working directory in which you want to run the command. If you leave it empty, the working directory is $(Build.SourcesDirectory).
         #failOnStderr: false # Optional
   - job: SecondJob
     steps:
