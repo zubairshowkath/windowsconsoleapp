@@ -24,7 +24,7 @@ stages:
     - bash: echo "Agent.BuildDirectory - $(Agent.BuildDirectory)"
     - powershell: Write-Host "System.DefaultWorkingDirectory - $(System.DefaultWorkingDirectory)"
     - powershell: Dir $(System.DefaultWorkingDirectory)
-    - powershell: 
+    - powershell: cd $(System.DefaultWorkingDirectory)\netcoreapp3.1
     #- bash: echo $(Build.ArtifactStagingDirectory)
     - script: date /t
       displayName: Get the date
