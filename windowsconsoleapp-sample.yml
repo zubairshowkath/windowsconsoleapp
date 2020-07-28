@@ -52,4 +52,19 @@ stages:
   #   - powershell: Write-Host "This is a script that could use $env:SYSTEM_ACCESSTOKEN"
   #     env:
   #       SYSTEM_ACCESSTOKEN: $(System.AccessToken)
-    
+
+schedules:
+- cron: "0 0 * * *"
+  displayName: Daily midnight build
+  branches:
+    include:
+    - master
+    # - releases/*
+    exclude:
+    - releases/ancient/*
+# - cron: "0 12 * * 0"
+#   displayName: Weekly Sunday build
+#   branches:
+#     include:
+#     - releases/*
+#   always: true
