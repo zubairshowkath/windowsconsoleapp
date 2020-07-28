@@ -19,7 +19,7 @@ stages:
     - powershell: echo Build FirstJob
     - powershell: echo $env:PIPELINELEVELVARIABLE
     - bash: echo $(environment)
-    - bash: echo $(Build.Source)
+    #- bash: echo $(Build.Source)
     - bash: echo "Agent.OS - $(Agent.OS)" 
     - bash: echo $(Agent.BuildDirectory)
     - bash: echo $(System.DefaultWorkingDirectory)
