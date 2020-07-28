@@ -19,8 +19,8 @@ stages:
     - powershell: echo Build FirstJob
     - powershell: echo $env:PIPELINELEVELVARIABLE
     - powershell: echo $env:Build_Source
-    - powershell: echo $Agent.OS
-    - powershell: echo $Agent.BuildDirectory
+    - bash: echo $(Agent.OS)
+    - bash: echo $(Agent.BuildDirectory)
   - job: SecondJob
     steps:
     - powershell: echo Build SecondJob
