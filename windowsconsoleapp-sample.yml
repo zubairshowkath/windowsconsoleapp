@@ -33,22 +33,22 @@ stages:
     - task: CmdLine@2
       inputs:
         script: 'HelloWorld.exe'
-    - task: CopyFiles@2
-      inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)'
-        Contents: '**'
-        TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    - task: CmdLine@2
-      inputs:
-        script: |
-          echo Write your commands here
-          echo Hello world
-        #workingDirectory: # (Optional) Specify the working directory in which you want to run the command. If you leave it empty, the working directory is $(Build.SourcesDirectory).
-        #failOnStderr: false # Optional
-  - job: SecondJob
-    steps:
-    - powershell: echo Build SecondJob
-    - powershell: Write-Host "This is a script that could use $env:SYSTEM_ACCESSTOKEN"
-      env:
-        SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+    # - task: CopyFiles@2
+    #   inputs:
+    #     SourceFolder: '$(System.DefaultWorkingDirectory)'
+    #     Contents: '**'
+    #     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  #   - task: CmdLine@2
+  #     inputs:
+  #       script: |
+  #         echo Write your commands here
+  #         echo Hello world
+  #       #workingDirectory: # (Optional) Specify the working directory in which you want to run the command. If you leave it empty, the working directory is $(Build.SourcesDirectory).
+  #       #failOnStderr: false # Optional
+  # - job: SecondJob
+  #   steps:
+  #   - powershell: echo Build SecondJob
+  #   - powershell: Write-Host "This is a script that could use $env:SYSTEM_ACCESSTOKEN"
+  #     env:
+  #       SYSTEM_ACCESSTOKEN: $(System.AccessToken)
     
