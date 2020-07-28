@@ -19,11 +19,12 @@ stages:
     - powershell: echo Build FirstJob
     - powershell: echo $env:PIPELINELEVELVARIABLE
     - bash: echo $(environment)
-    - bash: echo $(Build_Source)
+    - bash: echo $(Build.Source)
     - bash: echo $(Agent.OS)
     - bash: echo $(Agent.BuildDirectory)
     - bash: echo $(System.DefaultWorkingDirectory)
     - bash: ls -R $(System.DefaultWorkingDirectory)
+    - bash: echo $(Build.ArtifactStagingDirectory)
   - job: SecondJob
     steps:
     - powershell: echo Build SecondJob
